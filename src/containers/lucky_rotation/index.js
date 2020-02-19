@@ -277,18 +277,18 @@ class Lucky_Rotation extends React.Component {
 						if(data.status ==="01"){
 							if(auto){
 								var elem = document.getElementById('auto');
-								list.push(data.data.item.description);
+								list.push(data.data.description);
 								this.getDetailData()
 								_this.setState({data_auto: list});
 								elem.scrollTop = elem.scrollHeight;
-								if(data.data.item.type!=="ACTION"){
+								if(data.data.type!=="ACTION"){
 									this.setState({noti_tudo:true})
 									this.getVinhDanh(1);	
 								}
 							}else{
 								$('#Khobau').modal('show');
 								setTimeout(() => {
-									if(data.data.item.type!=="ACTION"){
+									if(data.data.type!=="ACTION"){
 										$('#myModal4').modal('show');
 										this.setState({noti_tudo:true})
 										this.getVinhDanh(1);
@@ -297,7 +297,7 @@ class Lucky_Rotation extends React.Component {
 									}
 									this.getDetailData();
 									$('#Khobau').modal('hide');
-									_this.setState({itemBonus: data.data.item});
+									_this.setState({itemBonus: data.data});
 								}, 1700);
 								
 							}	
