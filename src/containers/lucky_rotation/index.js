@@ -808,8 +808,8 @@ class Lucky_Rotation extends React.Component {
 							<a href="https://scoin.vn/" title="Đăng ký" target="_blank">Xem danh sách game</a>
 							<img src={bg_the_le_mobile} class="img-fluid bg-the-le-mobile" />
 							<div style={{border:'1px solid', padding:10, margin: 10}}>
-								<p style={{marginBottom:5}}>Bạn đã nạp tích lũy thẻ Scoin vào game</p>
-								<p style={{color:'red', fontWeight:'bold'}}>Cần nạp thêm để nhận Chìa khóa miễn phí</p>
+								<p style={{marginBottom:5}}>Bạn đã nạp tích lũy thẻ Scoin vào game: {turnsBuyInfo.scoinTopupWallet ? turnsBuyInfo.scoinTopupWallet.toLocaleString() : 0}Đ</p>
+								<p style={{color:'red', fontWeight:'bold'}}>Cần nạp thêm {turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0}Đ để nhận Chìa khóa miễn phí</p>
 								<p><a href="#" title="Thêm chìa khóa" class="font-iCielPantonLight font16" data-toggle="modal" onClick={this.openThemLuot}>Thêm Chìa khóa <img src={key_yellow_icon} width="20" class="img-fluid" /></a></p>
 							</div>
 						</div>
@@ -825,8 +825,6 @@ class Lucky_Rotation extends React.Component {
 				</div>
 			</div>
 			{/* End p2 */}
-
-
 
 			<div class="container-fluid bang-vinh-danh-mobile mt-5">
 				<h2 class="font-iCielPantonBlack text-brown-shadow text-uppercase text-center"><img src="images/header-bang-vinh-danh.png" class="img-fluid" alt="Bảng vinh danh" /></h2>
@@ -1012,13 +1010,6 @@ class Lucky_Rotation extends React.Component {
 
 
 
-
-
-
-
-
-
-
 			<div class="container-fluid footer text-center">
 				<div class="container pt-3">
 					<a href="https://daily.scoin.vn/huong-dan-mua-the/" title="Hướng dẫn mua thẻ" target="_blank"><img src={btn_huong_dan_mua_the} class="img-fluid img-mobile first-img" alt="Hướng dẫn mua thẻ" /></a>
@@ -1080,14 +1071,14 @@ class Lucky_Rotation extends React.Component {
 						<div class="modal-body font16">
 							<div class="w-75 mx-auto">
 								<p class="font-iCielPantonBlack text-brown pt-5">Bạn muốn nhận thêm Chìa khóa mở rương báu Scoin?</p>
-								<p class="font-iCielPantonBlack text-brown">Nạp game từ ví Scoin được tặng Chìa khóa:
+								<p class="font-iCielPantonBlack text-brown">Nạp thẻ Scoin trực tiếp vào game được tặng Chìa khóa:
 						Cứ 50.000 Scoin sẽ nhận 1 Chìa khóa mở rương báu</p>
 								<p class="font-iCielPantonBlack text-brown">(không giới hạn giá trị nạp & số lần nạp)</p>
-								<p class="font-iCielPantonBlack text-brown">Scoin đã nạp từ ví vào Game: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.scoinTopupWallet ? turnsBuyInfo.scoinTopupWallet.toLocaleString() : 0} Scoin</span></p>
+								<p class="font-iCielPantonBlack text-brown">Thẻ Scoin đã nạp vào Game: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.scoinTopupWallet ? turnsBuyInfo.scoinTopupWallet.toLocaleString() : 0}Đ</span></p>
 								{/* <p class="font-iCielPantonBlack text-brown">Chìa khóa đã nhận: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.turnTopupWallet ? turnsBuyInfo.turnTopupWallet.toLocaleString() : 0} Chìa khóa</span> <img src={key_yellow_icon} width="20" class="img-fluid" /></p> */}
-								<p class="font-iCielPantonBlack" style={{color:'red'}}>Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví -> Game để nhận 1 <img src={key_yellow_icon} width="20" class="img-fluid" /> Chìa khóa</p>
+								<p class="font-iCielPantonBlack" style={{color:'red'}}>Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0}Đ thẻ Scoin -> Game để nhận 1 <img src={key_yellow_icon} width="20" class="img-fluid" /> Chìa khóa</p>
 								<p class="text-center w-75 mx-auto mt-4 mb-0"><a href="https://scoin.vn/nap-game" title="Nạp Game" target="_blank"><img src={btn_nap_game} class="img-fluid napGame" /></a></p>
-								<p class="text-center w-75 mx-auto mt-2"><a href="" title="Mua chìa khóa dùng thẻ Scoin" data-toggle="modal" data-target="#MuaChiaKhoa"><img src={btn_mua_chia_khoa} class="img-fluid buyKey" /></a></p>
+								{/* <p class="text-center w-75 mx-auto mt-2"><a href="" title="Mua chìa khóa dùng thẻ Scoin" data-toggle="modal" data-target="#MuaChiaKhoa"><img src={btn_mua_chia_khoa} class="img-fluid buyKey" /></a></p> */}
 							</div>
 						</div>	  
 					</div>
@@ -1408,16 +1399,14 @@ class Lucky_Rotation extends React.Component {
 					<div class="modal-body font16">
 						<div class="w-75 mx-auto">
 							<h3 class="font-iCielPantonBlack text-brown pt-5">HẾT CHÌA KHÓA</h3>
-							<p class="font-iCielPantonBlack text-brown">Nạp game từ ví Scoin được tặng Chìa khóa:
-					Cứ 50.000 Scoin sẽ nhận 1 Chìa khóa mở rương báu</p>
-							<p style={{color:'red'}}>(không giới hạn giá trị nạp & số lần nạp)</p>
-							<div class="alert alert-giaithuong">
-							    <p class="font-iCielPantonBlack text-brown">Scoin đã nạp từ ví vào Game: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.scoinTopupWallet ? turnsBuyInfo.scoinTopupWallet.toLocaleString() : 0} Scoin</span></p>
-							    <p class="font-iCielPantonBlack text-brown">Chìa khóa đã nhận: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.turnTopupWallet ? turnsBuyInfo.turnTopupWallet.toLocaleString() : 0} Chìa khóa</span> <img src={key_yellow_icon} width="20" class="img-fluid" /></p>
-								<p class="font-iCielPantonBlack text-brown">Nạp thêm <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin</span> từ ví -> Game để nhận <span class="text-dark font-iCielPantonBlack">1 Chìa khóa</span> <img src={key_yellow_icon} width="20" class="img-fluid" /></p>
-							</div>
-							<p class="text-center w-75 mx-auto mt-4 mb-0"><a href="https://scoin.vn/nap-game" title="Nạp Game" target="_blank"><img src={btn_nap_game} class="img-fluid" /></a></p>
-							<p class="text-center w-75 mx-auto mt-2"><a href="" title="Mua chìa khóa dùng thẻ Scoin" data-toggle="modal" data-target="#MuaChiaKhoa"><img src={btn_mua_chia_khoa} class="img-fluid" /></a></p>
+							<p class="font-iCielPantonBlack text-brown">Nạp thẻ Scoin trực tiếp vào game được tặng Chìa khóa:
+					Cứ 50.000Đ sẽ nhận 1 Chìa khóa mở rương báu</p>
+							<p>(không giới hạn giá trị nạp & số lần nạp)</p>
+							<p class="font-iCielPantonBlack text-brown">Thẻ Scoin đã nạp vào Game: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.scoinTopupWallet ? turnsBuyInfo.scoinTopupWallet.toLocaleString() : 0}Đ</span></p>
+							{/* <p class="font-iCielPantonBlack text-brown">Chìa khóa đã nhận: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.turnTopupWallet ? turnsBuyInfo.turnTopupWallet.toLocaleString() : 0} Chìa khóa</span> <img src={key_yellow_icon} width="20" class="img-fluid" /></p> */}
+							<p class="font-iCielPantonBlack text-brown">Nạp thêm <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0}Đ</span> thẻ Scoin -> Game để nhận <img src={key_yellow_icon} width="20" class="img-fluid" /> <span class="text-dark font-iCielPantonBlack">1 Chìa khóa</span> </p>
+							<p class="text-center w-75 mx-auto mt-4 mb-0" style={{color:'red', fontWeight:'bold'}}><a href="https://scoin.vn/nap-game" title="Nạp Game" target="_blank"><img src={btn_nap_game} class="img-fluid" /></a></p>
+							{/* <p class="text-center w-75 mx-auto mt-2"><a href="" title="Mua chìa khóa dùng thẻ Scoin" data-toggle="modal" data-target="#MuaChiaKhoa"><img src={btn_mua_chia_khoa} class="img-fluid" /></a></p> */}
 						</div>
 					</div>	  
 					</div>
