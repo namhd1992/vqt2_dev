@@ -827,89 +827,6 @@ class Lucky_Rotation extends React.Component {
 			{/* End p2 */}
 
 
-			{/* <div class="container-fluid bang-vinh-danh-mobile mt-5">
-				<h2 class="font-iCielPantonBlack text-brown-shadow text-uppercase text-center"><img src={header_bang_vinh_danh} class="img-fluid" alt="Bảng vinh danh" /></h2>
-				<div class="table-responsive">
-					<table class="table mx-auto tbl-bang-vinh-danh-mobile">
-						<thead class="font18 font-iCielPantonLight font-weight-bold">
-							<tr>
-								<th><p class="card-text font-iCielPantonBlack text-brown-shadow font18">Tên/Giải thưởng/Thời gian trúng</p></th>
-							</tr>
-						</thead>
-						<tbody>
-							{listVinhDanh.map((obj, key) => (
-								<tr key={key}>
-									{(obj.itemName!=='...')?(<td><strong>{obj.userName}</strong> <br />{obj.itemName} <img src={ruong_icons} width={20} height={20}/><br />{obj.date}</td>):(
-										<td><strong>{obj.userName}</strong> <br />{obj.itemName} <br />{obj.date}</td>
-									)}
-									
-								</tr>
-							))}
-						</tbody>
-					</table>
-					<ul class="pagination justify-content-center pag-custom mt-4">
-						<Pagination
-							activePage={activeVinhDanh}
-							itemsCountPerPage={10}
-							totalItemsCount={countVinhDanh}
-							pageRangeDisplayed={numberPage}
-							lastPageText={'Trang cuối'}
-							firstPageText={'Trang đầu'}
-							itemClass={"page-item"}
-							linkClass={"page-link"}
-							onChange={(v) => this.handlePageChangeVinhDanh(v)}
-						/>
-					</ul> 
-				</div>
-			</div>
-			
-			<div class="container-fluid bang-vinh-danh">
-				<div class="container pt-5 box-bang-vinh-danh">
-					<div class="mt-5 bg-bang-vinh-danh mx-auto">
-						<table class="table table-borderless tbl-bang-vinh-danh">
-							<thead>
-								<tr>
-									<th><p class="font-iCielPantonBlack text-brown-shadow font18">Tên</p></th>
-									<th><p class="font-iCielPantonBlack text-brown-shadow font18">Giải thưởng</p></th>
-									<th><p class="font-iCielPantonBlack text-brown-shadow font18">Thời gian trúng</p></th>
-								</tr>
-							</thead>
-							<tbody>
-								{listVinhDanh.map((obj, key) => (
-									<tr key={key}>
-										<td className="border-right-0">{obj.userName}</td>
-										{(obj.itemName!=='...')?(<td className="border-left-0 border-right-0">{obj.itemName} <img src={ruong_icons} width={25} height={25} /></td>):(
-											<td className="border-left-0 border-right-0">{obj.itemName}</td>
-										)}
-										
-										<td className="border-left-0">{obj.date}</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>  
-					<ul class="pagination justify-content-center pag-custom mt-4">
-						<Pagination
-							activePage={activeVinhDanh}
-							itemsCountPerPage={10}
-							totalItemsCount={countVinhDanh}
-							pageRangeDisplayed={numberPage}
-							lastPageText={'Trang cuối'}
-							firstPageText={'Trang đầu'}
-							itemClass={"page-item"}
-							linkClass={"page-link"}
-							onChange={(v) => this.handlePageChangeVinhDanh(v)}
-						/>
-					</ul>   	
-				</div>
-			</div> */}
-
-
-
-
-
-
-
 
 			<div class="container-fluid bang-vinh-danh-mobile mt-5">
 				<h2 class="font-iCielPantonBlack text-brown-shadow text-uppercase text-center"><img src="images/header-bang-vinh-danh.png" class="img-fluid" alt="Bảng vinh danh" /></h2>
@@ -1012,10 +929,10 @@ class Lucky_Rotation extends React.Component {
 										<table class="table table-borderless">
 											<thead>
 											<tr>
-												<th><p class="font-iCielPantonBlack text-brown-shadow font18">Tên</p></th>
-												<th><p class="font-iCielPantonBlack text-brown-shadow font18">Tài khoản</p></th>
-												<th><p class="font-iCielPantonBlack text-brown-shadow font18">Số ĐT</p></th>
-												<th><p class="font-iCielPantonBlack text-brown-shadow font18">Thời gian trúng</p></th>
+												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tên</p></th>
+												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tài khoản</p></th>
+												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Số ĐT</p></th>
+												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Thời gian trúng</p></th>
 											</tr>
 											</thead>
 											<tbody>
@@ -1052,9 +969,9 @@ class Lucky_Rotation extends React.Component {
 										<table class="table table-borderless">
 											<thead>
 											<tr>
-												<th><p class="font-iCielPantonBlack text-brown-shadow font18">Tên</p></th>
-												<th><p class="font-iCielPantonBlack text-brown-shadow font18">Giải thưởng</p></th>
-												<th><p class="font-iCielPantonBlack text-brown-shadow font18">Thời gian</p></th>
+												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tên</p></th>
+												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Giải thưởng</p></th>
+												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Thời gian</p></th>
 											</tr>
 											</thead>
 											<tbody>
@@ -1166,11 +1083,9 @@ class Lucky_Rotation extends React.Component {
 								<p class="font-iCielPantonBlack text-brown">Nạp game từ ví Scoin được tặng Chìa khóa:
 						Cứ 50.000 Scoin sẽ nhận 1 Chìa khóa mở rương báu</p>
 								<p class="font-iCielPantonBlack text-brown">(không giới hạn giá trị nạp & số lần nạp)</p>
-								<div class="alert alert-giaithuong">
-									<p class="font-iCielPantonBlack text-brown">Scoin đã nạp từ ví vào Game: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.scoinTopupWallet ? turnsBuyInfo.scoinTopupWallet.toLocaleString() : 0} Scoin</span></p>
-									<p class="font-iCielPantonBlack text-brown">Chìa khóa đã nhận: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.turnTopupWallet ? turnsBuyInfo.turnTopupWallet.toLocaleString() : 0} Chìa khóa</span> <img src={key_yellow_icon} width="20" class="img-fluid" /></p>
-									<p class="font-iCielPantonBlack" style={{color:'red'}}>Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví -> Game để nhận 1 <img src={key_yellow_icon} width="20" class="img-fluid" /> Chìa khóa</p>
-								</div>
+								<p class="font-iCielPantonBlack text-brown">Scoin đã nạp từ ví vào Game: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.scoinTopupWallet ? turnsBuyInfo.scoinTopupWallet.toLocaleString() : 0} Scoin</span></p>
+								{/* <p class="font-iCielPantonBlack text-brown">Chìa khóa đã nhận: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.turnTopupWallet ? turnsBuyInfo.turnTopupWallet.toLocaleString() : 0} Chìa khóa</span> <img src={key_yellow_icon} width="20" class="img-fluid" /></p> */}
+								<p class="font-iCielPantonBlack" style={{color:'red'}}>Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví -> Game để nhận 1 <img src={key_yellow_icon} width="20" class="img-fluid" /> Chìa khóa</p>
 								<p class="text-center w-75 mx-auto mt-4 mb-0"><a href="https://scoin.vn/nap-game" title="Nạp Game" target="_blank"><img src={btn_nap_game} class="img-fluid napGame" /></a></p>
 								<p class="text-center w-75 mx-auto mt-2"><a href="" title="Mua chìa khóa dùng thẻ Scoin" data-toggle="modal" data-target="#MuaChiaKhoa"><img src={btn_mua_chia_khoa} class="img-fluid buyKey" /></a></p>
 							</div>
