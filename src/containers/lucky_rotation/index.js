@@ -99,6 +99,7 @@ class Lucky_Rotation extends React.Component {
 			minute:'00', 
 			second:'00',
 			itemBonus:{},
+			type_item: 'highlights',
 			
 			activeVinhDanh:1,
 			listVinhDanh:[],
@@ -144,6 +145,7 @@ class Lucky_Rotation extends React.Component {
 			turnsBuyInfo:[],
 			soinValue:0,
 			hideNav:false,
+
 		};
 	}
 	componentWillMount(){
@@ -154,7 +156,7 @@ class Lucky_Rotation extends React.Component {
 	componentDidMount(){
 		var user = JSON.parse(localStorage.getItem("user"));
 		if (user !== null) {
-			this.props.getRotationDetailDataUser(user.access_token, 120).then(()=>{
+			this.props.getRotationDetailDataUser(user.access_token, 119).then(()=>{
 				var data=this.props.dataRotationWithUser;
 				if(data!==undefined){
 					if(data.status==='01'){
@@ -171,7 +173,7 @@ class Lucky_Rotation extends React.Component {
 				
 			});
 		} else {
-			this.props.getRotationDetailData(120).then(()=>{
+			this.props.getRotationDetailData(119).then(()=>{
 				var data=this.props.dataRotation;
 				if(data!==undefined){
 					if(data.status==='01'){
@@ -187,7 +189,7 @@ class Lucky_Rotation extends React.Component {
 				}
 			});
 		}
-		this.getVinhDanh(1);
+		this.getDataVinhDanh('highlights',1);
 		window.addEventListener('scroll', this.handleScroll);
 		$("#demo").carousel({interval: 3000});
 	}
@@ -263,7 +265,7 @@ class Lucky_Rotation extends React.Component {
 	}
 
 	start=()=>{
-		const {turnsFree, itemOfSpin, luckySpin, isSpin, closeAuto, auto}=this.state;
+		const {turnsFree, itemOfSpin, luckySpin, isSpin, closeAuto, auto, type_item}=this.state;
 		var _this = this;
 		var user = JSON.parse(localStorage.getItem("user"));
 		var time=Date.now();
@@ -283,7 +285,7 @@ class Lucky_Rotation extends React.Component {
 								elem.scrollTop = elem.scrollHeight;
 								if(data.data.type!=="ACTION"){
 									this.setState({noti_tudo:true})
-									this.getVinhDanh(1);	
+									this.getDataVinhDanh(type_item, 1);	
 								}
 							}else{
 								$('#Khobau').modal('show');
@@ -291,7 +293,7 @@ class Lucky_Rotation extends React.Component {
 									if(data.data.type!=="ACTION"){
 										$('#myModal4').modal('show');
 										this.setState({noti_tudo:true})
-										this.getVinhDanh(1);
+										this.getDataVinhDanh(type_item, 1);
 									}else{
 										$('#myModal7').modal('show');
 									}
@@ -538,9 +540,15 @@ class Lucky_Rotation extends React.Component {
 		});
 	}
 
+	getDataVinhDanh=(type_item, pageNumber)=>{
+		this.setState({type_item:type_item},()=>{
+			this.getVinhDanh(pageNumber);
+		})
+	}
+
 	getVinhDanh=(pageNumber)=>{
-		const {limit, luckySpin}=this.state;
-		this.props.getVinhDanh(120, 10, (pageNumber-1)).then(()=>{
+		const {limit, luckySpin, type_item}=this.state;
+		this.props.getVinhDanh(119, 10, (pageNumber-1), type_item).then(()=>{
 			var data=this.props.dataVinhDanh;
 			if(data!==undefined){
 				
@@ -548,7 +556,7 @@ class Lucky_Rotation extends React.Component {
 					var n=10-data.data.length;
 					var listEmpty=[];
 					for (let i = 0; i < n; i++) {
-						let obj={date: '...', description: null, itemName: '...', userName: '...'}
+						let obj={date: '...', description: null, itemName: '...', userName: '...', phone: '...'}
 						listEmpty.push(obj);
 					}
 					var listData=data.data.concat(listEmpty)
@@ -556,7 +564,7 @@ class Lucky_Rotation extends React.Component {
 				}else if(data.status==='03'){
 					var listEmpty=[];
 					for (let i = 0; i < 10; i++) {
-						let obj={date: '...', description: null, itemName: '...', userName: '...'}
+						let obj={date: '...', description: null, itemName: '...', userName: '...', phone: '...'}
 						listEmpty.push(obj);
 					}
 					this.setState({listVinhDanh:listEmpty, countVinhDanh: 10})
@@ -570,6 +578,8 @@ class Lucky_Rotation extends React.Component {
 			}
 		});
 	}
+
+
 
 	openGiaiThuong=()=>{
 		// var offsetTuDo=(pageNumber-1)*limit;
@@ -662,8 +672,9 @@ class Lucky_Rotation extends React.Component {
 	}
 
 	handlePageChangeVinhDanh=(pageNumber)=> {
+		const {type_item}=this.state;
 		this.setState({activeVinhDanh: pageNumber},()=>{
-			this.getVinhDanh(pageNumber)
+			this.getDataVinhDanh(type_item, pageNumber)
 		})
 	}
 
@@ -830,10 +841,10 @@ class Lucky_Rotation extends React.Component {
 				<h2 class="font-iCielPantonBlack text-brown-shadow text-uppercase text-center"><img src="images/header-bang-vinh-danh.png" class="img-fluid" alt="Bảng vinh danh" /></h2>
 				<ul class="nav nav-pills nav-justified pop-custom">
 				<li class="nav-item">
-					<a class="nav-link active px-2" data-toggle="tab" href="#doithuong"><img src="images/img-doithuong.png" class="img-fluid" alt="Giải đặc biệt" /></a>
+					<a class="nav-link active px-2" data-toggle="tab" href="#doithuong" onClick={()=>this.getDataVinhDanh('highlights',1)}><img src="images/img-doithuong.png" class="img-fluid" alt="Giải đặc biệt" /></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link px-2" data-toggle="tab" href="#mochu"><img src="images/img-mochu.png" class="img-fluid" alt="Các giải khác" /></a>
+					<a class="nav-link px-2" data-toggle="tab" href="#mochu" onClick={()=>this.getDataVinhDanh('',1)}><img src="images/img-mochu.png" class="img-fluid" alt="Các giải khác" /></a>
 				</li>
 				</ul> 
 				<div class="tab-content">
@@ -842,14 +853,14 @@ class Lucky_Rotation extends React.Component {
 							<table class="table mx-auto tbl-bang-vinh-danh-mobile">
 								<thead class="font18 font-iCielPantonLight font-weight-bold">
 								<tr>
-									<th><p class="card-text font-iCielPantonBlack text-brown-shadow font18">Tên/Tài khoản/Số ĐT/Thời gian trúng</p></th>
+									<th><p class="card-text font-iCielPantonBlack text-brown-shadow font18">Tài khoản/Số ĐT/Thời gian trúng</p></th>
 								</tr>
 								</thead>
 								<tbody>
 									{listVinhDanh.map((obj, key) => (
 											<tr key={key}>
-												{(obj.itemName!=='...')?(<td><strong>{obj.userName}</strong> <br />{obj.itemName} <img src={ruong_icons} width={20} height={20}/><br />{obj.date}</td>):(
-													<td><strong>{obj.userName}</strong> <br />{obj.itemName} <br />{obj.date}</td>
+												{(obj.itemName!=='...')?(<td><strong>{obj.userName}</strong><br />{obj.phone}<br />{obj.date}</td>):(
+													<td><strong>{obj.userName}</strong> <br />{obj.phone}<br />{obj.date}</td>
 												)}
 												
 											</tr>
@@ -915,10 +926,10 @@ class Lucky_Rotation extends React.Component {
 								<div class="tbl-bang-vinh-danh">
 								<ul class="nav nav-pills nav-justified pop-custom">
 								<li class="nav-item">
-									<a class="nav-link active px-2" data-toggle="tab" href="#doithuong1">Giải đặc biệt</a>
+									<a class="nav-link active px-2" data-toggle="tab" href="#doithuong1" onClick={()=>this.getDataVinhDanh('highlights',1)}>Giải đặc biệt</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link px-2" data-toggle="tab" href="#mochu1">Giải khác</a>
+									<a class="nav-link px-2" data-toggle="tab" href="#mochu1" onClick={()=>this.getDataVinhDanh('',1)}>Giải khác</a>
 								</li>
 								</ul> 
 								<div class="tab-content">
@@ -927,7 +938,6 @@ class Lucky_Rotation extends React.Component {
 										<table class="table table-borderless">
 											<thead>
 											<tr>
-												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tên</p></th>
 												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tài khoản</p></th>
 												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Số ĐT</p></th>
 												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Thời gian trúng</p></th>
@@ -937,10 +947,7 @@ class Lucky_Rotation extends React.Component {
 												{listVinhDanh.map((obj, key) => (
 														<tr key={key}>
 															<td className="border-right-0">{obj.userName}</td>
-															{(obj.itemName!=='...')?(<td className="border-left-0 border-right-0">{obj.itemName} <img src={ruong_icons} width={25} height={25} /></td>):(
-																<td className="border-left-0 border-right-0">{obj.itemName}</td>
-															)}
-															
+															<td className="border-right-0">{obj.phone}</td>
 															<td className="border-left-0">{obj.date}</td>
 														</tr>
 													))}
