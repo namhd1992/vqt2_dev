@@ -168,7 +168,7 @@ h2.font-iCielPantonBlack {line-height: 1.8;}
 .box-time {left: 25%;}
 .logo {position: absolute; top: 2.5%;}
 .box-thele {width: 100%; height: auto; overflow:inherit}
-.step-thele {background:url(../images/bg-the-le-mobile.png); background-size: 100% auto; width:100%; height: auto}
+.step-thele { background-size: 100% auto; width:100%; height: auto}
 .step-thele .card-deck {display: none}
 .step-thele .bg-the-le-mobile {display: block;}
 .thele_3{

@@ -817,13 +817,13 @@ class Lucky_Rotation extends React.Component {
 			{/* End p2 */}
 
 			<div class="container-fluid bang-vinh-danh-mobile mt-5">
-				<h2 class="font-iCielPantonBlack text-brown-shadow text-uppercase text-center"><img src="images/header-bang-vinh-danh.png" class="img-fluid" alt="Bảng vinh danh" /></h2>
+				<h2 class="font-iCielPantonBlack text-brown-shadow text-uppercase text-center">Bảng Vinh Danh</h2>
 				<ul class="nav nav-pills nav-justified pop-custom">
 				<li class="nav-item">
-					<a class="nav-link active px-2" data-toggle="tab" href="#doithuong" onClick={()=>this.getDataVinhDanh('highlights',1)}><img src="images/img-doithuong.png" class="img-fluid" alt="Giải đặc biệt" /></a>
+					<a class="nav-link active px-2" data-toggle="tab" href="#doithuong" onClick={()=>this.getDataVinhDanh('highlights',1)}>Giải đặc biệt</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link px-2" data-toggle="tab" href="#mochu" onClick={()=>this.getDataVinhDanh('',1)}><img src="images/img-mochu.png" class="img-fluid" alt="Các giải khác" /></a>
+					<a class="nav-link px-2" data-toggle="tab" href="#mochu" onClick={()=>this.getDataVinhDanh('',1)}>Giải khác</a>
 				</li>
 				</ul> 
 				<div class="tab-content">
@@ -903,92 +903,92 @@ class Lucky_Rotation extends React.Component {
 						<div class="container pt-5 box-bang-vinh-danh">
 							<div class="mt-5 bg-bang-vinh-danh mx-auto">
 								<div class="tbl-bang-vinh-danh">
-								<ul class="nav nav-pills nav-justified pop-custom">
-								<li class="nav-item">
-									<a class="nav-link active px-2" data-toggle="tab" href="#doithuong1" onClick={()=>this.getDataVinhDanh('highlights',1)}>Giải đặc biệt</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link px-2" data-toggle="tab" href="#mochu1" onClick={()=>this.getDataVinhDanh('',1)}>Giải khác</a>
-								</li>
-								</ul> 
-								<div class="tab-content">
-								<div class="tab-pane container active" id="doithuong1">
-									<div class="pt-3">        
-										<table class="table table-borderless">
-											<thead>
-											<tr>
-												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tên tài khoản</p></th>
-												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Số ĐT</p></th>
-												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Thời gian trúng</p></th>
-											</tr>
-											</thead>
-											<tbody>
-												{listVinhDanh.map((obj, key) => (
-														<tr key={key}>
-															<td className="border-right-0">{obj.userName}</td>
-															<td className="border-right-0">{obj.phone}</td>
-															<td className="border-left-0">{obj.date}</td>
-														</tr>
-													))}
-											</tbody>
-										</table>
-												
-										<ul class="pagination justify-content-center pag-custom mt-4">
-											<Pagination
-												activePage={activeVinhDanh}
-												itemsCountPerPage={10}
-												totalItemsCount={countVinhDanh}
-												pageRangeDisplayed={numberPage}
-												lastPageText={'Trang cuối'}
-												firstPageText={'Trang đầu'}
-												itemClass={"page-item"}
-												linkClass={"page-link"}
-												onChange={(v) => this.handlePageChangeVinhDanh(v)}
-											/>
-										</ul>   	
-										</div>
-									</div>
-									<div class="tab-pane container fade" id="mochu1">
+									<ul class="nav nav-pills nav-justified pop-custom">
+										<li class="nav-item">
+											<a class="nav-link active px-2" data-toggle="tab" href="#doithuong1" onClick={()=>this.getDataVinhDanh('highlights',1)}>Giải đặc biệt</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link px-2" data-toggle="tab" href="#mochu1" onClick={()=>this.getDataVinhDanh('',1)}>Giải khác</a>
+										</li>
+									</ul> 
+									<div class="tab-content">
+									<div class="tab-pane container active" id="doithuong1">
 										<div class="pt-3">        
-										<table class="table table-borderless">
-											<thead>
-											<tr>
-												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tên tài khoản</p></th>
-												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Giải thưởng</p></th>
-												<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Thời gian trúng</p></th>
-											</tr>
-											</thead>
-											<tbody>
-												{listVinhDanh.map((obj, key) => (
-														<tr key={key}>
-															<td className="border-right-0">{obj.userName}</td>
-															{(obj.itemName!=='...')?(<td className="border-left-0 border-right-0">{obj.itemName} <img src={ruong_icons} width={25} height={25} /></td>):(
-																<td className="border-left-0 border-right-0">{obj.itemName}</td>
-															)}
-															
-															<td className="border-left-0">{obj.date}</td>
-														</tr>
-													))}
-											</tbody>
-										</table>
-												
-										<ul class="pagination justify-content-center pag-custom mt-4">
-											<Pagination
-												activePage={activeVinhDanh}
-												itemsCountPerPage={10}
-												totalItemsCount={countVinhDanh}
-												pageRangeDisplayed={numberPage}
-												lastPageText={'Trang cuối'}
-												firstPageText={'Trang đầu'}
-												itemClass={"page-item"}
-												linkClass={"page-link"}
-												onChange={(v) => this.handlePageChangeVinhDanh(v)}
-											/>
-										</ul>   	
+											<table class="table table-borderless">
+												<thead>
+												<tr>
+													<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tên tài khoản</p></th>
+													<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Số ĐT</p></th>
+													<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Thời gian trúng</p></th>
+												</tr>
+												</thead>
+												<tbody>
+													{listVinhDanh.map((obj, key) => (
+															<tr key={key}>
+																<td className="border-right-0">{obj.userName}</td>
+																<td className="border-right-0">{obj.phone}</td>
+																<td className="border-left-0">{obj.date}</td>
+															</tr>
+														))}
+												</tbody>
+											</table>
+													
+											<ul class="pagination justify-content-center pag-custom mt-4">
+												<Pagination
+													activePage={activeVinhDanh}
+													itemsCountPerPage={10}
+													totalItemsCount={countVinhDanh}
+													pageRangeDisplayed={numberPage}
+													lastPageText={'Trang cuối'}
+													firstPageText={'Trang đầu'}
+													itemClass={"page-item"}
+													linkClass={"page-link"}
+													onChange={(v) => this.handlePageChangeVinhDanh(v)}
+												/>
+											</ul>   	
+											</div>
 										</div>
+										<div class="tab-pane container fade" id="mochu1">
+											<div class="pt-3">        
+											<table class="table table-borderless">
+												<thead>
+												<tr>
+													<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Tên tài khoản</p></th>
+													<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Giải thưởng</p></th>
+													<th class="pb-0"><p class="font-iCielPantonBlack text-brown-shadow font18 mb-0">Thời gian trúng</p></th>
+												</tr>
+												</thead>
+												<tbody>
+													{listVinhDanh.map((obj, key) => (
+															<tr key={key}>
+																<td className="border-right-0">{obj.userName}</td>
+																{(obj.itemName!=='...')?(<td className="border-left-0 border-right-0">{obj.itemName} <img src={ruong_icons} width={25} height={25} /></td>):(
+																	<td className="border-left-0 border-right-0">{obj.itemName}</td>
+																)}
+																
+																<td className="border-left-0">{obj.date}</td>
+															</tr>
+														))}
+												</tbody>
+											</table>
+													
+											<ul class="pagination justify-content-center pag-custom mt-4">
+												<Pagination
+													activePage={activeVinhDanh}
+													itemsCountPerPage={10}
+													totalItemsCount={countVinhDanh}
+													pageRangeDisplayed={numberPage}
+													lastPageText={'Trang cuối'}
+													firstPageText={'Trang đầu'}
+													itemClass={"page-item"}
+													linkClass={"page-link"}
+													onChange={(v) => this.handlePageChangeVinhDanh(v)}
+												/>
+											</ul>   	
+											</div>
+										</div>
+										
 									</div>
-									
-								</div>
 								</div>
 							</div>    	
 						</div>
