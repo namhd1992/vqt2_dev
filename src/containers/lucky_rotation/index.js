@@ -22,7 +22,7 @@ import {
 
 import arrow_down from './images/arrow-down.png'
 import backtotop from './images/backtotop.png'
-import banner_slider_1 from './images/banner-slider-1.png'
+import slide from './images/slide.gif'
 import banner_slider_2 from './images/banner-slider-2.png'
 import banner_slider_3 from './images/banner-slider-3.png'
 import bg_acc from './images/bg-acc.png'
@@ -749,33 +749,11 @@ class Lucky_Rotation extends React.Component {
 							</tr>
 						</table>
 					</div>
-					<div id="demo" class="carousel slide box-slider" data-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img src={banner_slider_1} class="img-fluid" />
-								<div class="carousel-caption carousel-fix">
-									<p>Chìa khóa còn lại: {turnsFree ? turnsFree.toLocaleString() :0} <img src={key_yellow_icon}  width="20"/></p>
-								</div>   
-							</div>
-							<div class="carousel-item">
-								<img src={banner_slider_2} class="img-fluid" />
-								<div class="carousel-caption carousel-fix">
-									<p>Chìa khóa còn lại: {turnsFree ? turnsFree.toLocaleString() :0} <img src={key_yellow_icon} width="20"/></p>
-								</div>   
-							</div>
-							<div class="carousel-item ">
-								<img src={banner_slider_3} class="img-fluid" />
-								<div class="carousel-caption carousel-fix">
-									<p>Chìa khóa còn lại: {turnsFree ? turnsFree.toLocaleString() :0} <img src={key_yellow_icon} width="20"/></p>
-								</div>   
-							</div>
-						</div>
-						<a class="carousel-control-prev" href="#demo" data-slide="prev">
-							<span class="carousel-control-prev-icon"></span>
-						</a>
-						<a class="carousel-control-next" href="#demo" data-slide="next">
-							<span class="carousel-control-next-icon"></span>
-						</a>
+					<div id="demo" class="box-slider">
+						<img src={slide} class="img-fluid" />
+						<div>
+							<p style={{textAlign:'center', color:'#fff'}}>Chìa khóa còn lại: {turnsFree ? turnsFree.toLocaleString() :0} <img src={key_yellow_icon}  width="20"/></p>
+						</div>   
 					</div>
 					<div class="button-group mx-auto">
 						<p class="text-center row mx-0">
