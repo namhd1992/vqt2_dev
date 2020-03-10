@@ -1397,6 +1397,7 @@ class Lucky_Rotation extends React.Component {
 								
 								<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm <span class="text-red font-iCielPantonBlack">{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví hoặc {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0}Đ từ thẻ Scoin để nhận 01 Chìa khóa miễn phí!</span></p>
 							</div>
+							<p class="text-center w-75 mx-auto mt-4 mb-0"><a href="http://sandbox.scoin.vn/nap-vao-game?GameId=330281" title="Nạp Game" target="_blank"><img src={btn_nap_game} class="img-fluid napGame" /></a></p>
 						</div>
 					</div>	  
 					</div>
