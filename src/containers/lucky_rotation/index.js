@@ -1116,17 +1116,17 @@ class Lucky_Rotation extends React.Component {
 					<div class="modal-body">
 						<h2 class="font-iCielPantonBlack text-brown-shadow text-uppercase text-center pb-0">Lịch Sử</h2>
 						<div class="">
-							<ul class="nav nav-pills justify-content-between pag-custom">
-							<li class="nav-item">
-								<a class="nav-link active font16 px-2" data-toggle="tab" href="#TGiaiThuong" onClick={this.getBonus}>Giải thưởng</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link font16 px-2" data-toggle="tab" href="#TMoRuong" onClick={()=>this.getRuong(user,activeRuong)}>Mở Rương</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link font16 px-2" data-toggle="tab" href="#TNhanChiaKhoa" onClick={()=>this.getKey(user,activeKey)}>Nhận chìa khóa</a>
-							</li>
-							</ul>            
+							<ul class="nav nav-pills nav-justified pop-custom">
+								<li class="nav-item">
+									<a class="nav-link active font16 px-2" data-toggle="tab" href="#TGiaiThuong" onClick={this.getBonus}>Giải thưởng</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link font16 px-2" data-toggle="tab" href="#TMoRuong" onClick={()=>this.getRuong(user,activeRuong)}>Mở Rương</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link font16 px-2" data-toggle="tab" href="#TNhanChiaKhoa" onClick={()=>this.getKey(user,activeKey)}>Nhận chìa khóa</a>
+								</li>
+							</ul>
 							<div class="tab-content">
 							<div class="tab-pane container active" id="TGiaiThuong">
 								<div class="d-pc-none pt-3">
@@ -1393,9 +1393,8 @@ class Lucky_Rotation extends React.Component {
 							</ul>				
 							<p class="font-iCielPantonBlack text-brown">(không giới hạn giá trị nạp & số lần nạp)</p>
 							<div class="alert alert-giaithuong">
-								<p class="font-iCielPantonBlack text-brown">Số điểm đã tích lũy: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.totalTopupOfUser ? turnsBuyInfo.totalTopupOfUser.toLocaleString() : 0} Điểm</span></p>
-								
-								<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm <span class="text-red font-iCielPantonBlack">{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví hoặc {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0}Đ từ thẻ Scoin để nhận 01 Chìa khóa miễn phí!</span></p>
+								<p class="font-iCielPantonBlack text-brown">Số điểm đã tích lũy: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.totalTopupOfUser ? turnsBuyInfo.totalTopupOfUser.toLocaleString() : 0} Điểm</span></p>	
+								<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm <span class="font-iCielPantonBlack" style={{color:'red'}}>{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví </span> hoặc <span class="text-red font-iCielPantonBlack" style={{color:'red'}}> {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0}Đ từ thẻ Scoin</span> để nhận 01 Chìa khóa miễn phí!</p>
 							</div>
 							<p class="text-center w-75 mx-auto mt-4 mb-0"><a href="http://sandbox.scoin.vn/nap-vao-game?GameId=330281" title="Nạp Game" target="_blank"><img src={btn_nap_game} class="img-fluid napGame" /></a></p>
 						</div>
