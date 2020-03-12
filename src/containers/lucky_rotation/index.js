@@ -120,6 +120,7 @@ class Lucky_Rotation extends React.Component {
 			dataTuDo:[],
 			dataCodeBonus:[],	
 			listHistory:[],
+			textAuto: true,
 			
 			listCountBonus:[],
 			width:0,
@@ -407,10 +408,9 @@ class Lucky_Rotation extends React.Component {
 							}, 2000);
 							this.setState({timeout: timeout});	
 						}
+					}else{
+						this.setState({textAuto:false})
 					}
-					// }else{
-					// 	$('#myModal6').modal('show');
-					// }
 					this.setState({turnsFree:turnsFree})
 				}else if(data.status ==="04"){
 					$('#myModal13').modal('show');
@@ -716,7 +716,7 @@ class Lucky_Rotation extends React.Component {
 
 
 	render() {
-		const {soinValue,listCountBonus, listKey, activeKey, turnsBuyInfo,status_sukien, xacthuc, scoinCard,height, width, dialogLoginOpen, dialogBonus, auto, dialogWarning, textWarning, isLogin, userTurnSpin, day, hour, minute, second, code,numberPage, message_status, data_auto,message_error,
+		const {textAuto, soinValue,listCountBonus, listKey, activeKey, turnsBuyInfo,status_sukien, xacthuc, scoinCard,height, width, dialogLoginOpen, dialogBonus, auto, dialogWarning, textWarning, isLogin, userTurnSpin, day, hour, minute, second, code,numberPage, message_status, data_auto,message_error,
 			activeRuong, activeHistory, activeBonus, activeVinhDanh, limit, countCodeBonus, countRuong, countKey, countVinhDanh, listHistory, listCodeBonus, listRuong, listVinhDanh,itemBonus, turnsFree, noti_mdt, noti_tudo, hour_live, minute_live, second_live, user}=this.state;
 		const { classes } = this.props;
 		const notification_tudo=noti_tudo?(<span className="badge badge-pill badge-danger position-absolute noti-tudo">!</span>):(<span></span>);
@@ -1491,7 +1491,10 @@ class Lucky_Rotation extends React.Component {
 						
 						</div>
 						<p className="text-thele">Vào <code style={{color:'red'}}><label style={{cursor:'pointer'}} onClick={()=>this.showModalCodeBonus(1)}>Lịch sử</label></code> để xem chi tiết.</p>
-						<p className="text-thele text-center"><code style={{color:'red'}} className="font-iCielPantonBlack">Đang mở tự động <span className="spinner-grow spinner-grow-sm"></span></code></p>
+						{(textAuto)?(<p className="text-thele text-center"><code style={{color:'red'}} className="font-iCielPantonBlack">Đang mở tự động <span className="spinner-grow spinner-grow-sm"></span></code></p>):(
+							<p className="text-thele text-center font-iCielPantonBlack" style={{color:'red'}}>Đã dùng hết Chìa khóa</p>
+						)}
+						
 						
 					</div>
 
