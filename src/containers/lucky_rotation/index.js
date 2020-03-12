@@ -380,10 +380,11 @@ class Lucky_Rotation extends React.Component {
 							});
 							$('#Khobau').modal('hide');
 						}, 1700);
-						
-					}else{
-						$('#myModal6').modal('show');
 					}
+						
+					// }else{
+					// 	$('#myModal6').modal('show');
+					// }
 				}
 			} else {
 				$('#myModal5').modal('show');
