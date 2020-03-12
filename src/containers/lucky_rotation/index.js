@@ -411,7 +411,7 @@ class Lucky_Rotation extends React.Component {
 					}else{
 						this.setState({textAuto:false})
 					}
-					this.setState({turnsFree:turnsFree})
+					this.setState({turnsFree:turnsFree, turnsBuyInfo:data.data.userTurnSpin.turnsBuyInfo})
 				}else if(data.status ==="04"){
 					$('#myModal13').modal('show');
 				}else{
@@ -796,13 +796,13 @@ class Lucky_Rotation extends React.Component {
 						<div class="step-thele mx-auto">
 							<p>Nạp thẻ Scoin/ thẻ Scoin vào các game do VTC Mobile phát hành.</p>
 							<ul>
-								<li class="font-iCielPantonBlack text-brown">Mỗi 1đ bạn nạp vào game từ Thẻ Scoin sẽ nhận được 2 điểm</li>
-								<li class="font-iCielPantonBlack text-brown">Mỗi 1đ bạn nạp vào game từ ví Scoin sẽ nhận được 1 điểm.</li>
-								<li class="font-iCielPantonBlack text-brown">Mỗi 100.000 điểm bạn nhận được 01 Chìa khóa được hệ thống tự động quy đổi.</li>
+								<li class="font-iCielPantonBlack text-brown">Mỗi 1 Scoin bạn nạp vào game từ Thẻ Scoin sẽ nhận được 2 Điểm</li>
+								<li class="font-iCielPantonBlack text-brown">Mỗi 1 Scoin bạn nạp vào game từ ví Scoin sẽ nhận được 1 Điểm.</li>
+								<li class="font-iCielPantonBlack text-brown">Mỗi 100.000 Điểm bạn nhận được 01 Chìa khóa được hệ thống tự động quy đổi.</li>
 							</ul>
 							<div style={{border:'1px solid', padding:10, margin: 10}}>
 								<p style={{marginBottom:5}}>Số điểm đã tích lũy: {turnsBuyInfo.accumulationPoint ? turnsBuyInfo.accumulationPoint.toLocaleString() : 0} Điểm</p>
-								<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm tối thiểu <span class="text-red font-iCielPantonBlack" style={{color:'red'}}> {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0}Đ từ thẻ Scoin</span> hoặc <span class="font-iCielPantonBlack" style={{color:'red'}}>{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví </span>  để nhận 01 Chìa khóa miễn phí!</p>
+								<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm tối thiểu <span class="text-red font-iCielPantonBlack" style={{color:'red'}}> {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0} Scoin từ thẻ Scoin</span> hoặc <span class="font-iCielPantonBlack" style={{color:'red'}}>{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví </span>  để nhận 01 Chìa khóa miễn phí!</p>
 								<p><a href="#" title="Thêm chìa khóa" class="font-iCielPantonLight font16" data-toggle="modal" onClick={this.openThemLuot}>Thêm Chìa khóa <img src={key_yellow_icon} width="20" class="img-fluid" /></a></p>
 							</div>
 						</div>
@@ -1061,14 +1061,14 @@ class Lucky_Rotation extends React.Component {
 							<div class="w-75 mx-auto">
 								<p class="font-iCielPantonBlack text-brown pt-5">Bạn muốn nhận thêm Chìa khóa mở rương báu Scoin?</p>
 								<ul>
-									<li class="font-iCielPantonBlack text-brown">Mỗi 1đ bạn nạp vào game từ Thẻ Scoin sẽ nhận được 2 điểm</li>
-									<li class="font-iCielPantonBlack text-brown">Mỗi 1đ bạn nạp vào game từ ví Scoin sẽ nhận được 1 điểm.</li>
-									<li class="font-iCielPantonBlack text-brown">Mỗi 100.000 điểm bạn nhận được 01 Chìa khóa được hệ thống tự động quy đổi.</li>
+									<li class="font-iCielPantonBlack text-brown">Mỗi 1 Scoin bạn nạp vào game từ Thẻ Scoin sẽ nhận được 2 Điểm</li>
+									<li class="font-iCielPantonBlack text-brown">Mỗi 1 Scoin bạn nạp vào game từ ví Scoin sẽ nhận được 1 Điểm.</li>
+									<li class="font-iCielPantonBlack text-brown">Mỗi 100.000 Điểm bạn nhận được 01 Chìa khóa được hệ thống tự động quy đổi.</li>
 								</ul>				
 								<p class="font-iCielPantonBlack text-brown">(không giới hạn giá trị nạp & số lần nạp)</p>
 								<div class="alert alert-giaithuong">
 									<p class="font-iCielPantonBlack text-brown">Số điểm đã tích lũy: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.accumulationPoint ? turnsBuyInfo.accumulationPoint.toLocaleString() : 0} Điểm</span></p>	
-									<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm tối thiểu <span class="text-red font-iCielPantonBlack" style={{color:'red'}}> {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0}Đ từ thẻ Scoin</span> hoặc <span class="font-iCielPantonBlack" style={{color:'red'}}>{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví </span>  để nhận 01 Chìa khóa miễn phí!</p>
+									<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm tối thiểu <span class="text-red font-iCielPantonBlack" style={{color:'red'}}> {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0} Scoin từ thẻ Scoin</span> hoặc <span class="font-iCielPantonBlack" style={{color:'red'}}>{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví </span>  để nhận 01 Chìa khóa miễn phí!</p>
 								</div>
 								<p class="text-center w-75 mx-auto mt-4 mb-0"><a href="http://sandbox.scoin.vn/nap-vao-game?GameId=330281" title="Nạp Game" target="_blank"><img src={btn_nap_game} class="img-fluid napGame" /></a></p>
 							</div>
@@ -1392,14 +1392,14 @@ class Lucky_Rotation extends React.Component {
 						<div class="w-75 mx-auto">
 							<h3 class="font-iCielPantonBlack text-brown pt-5">HẾT CHÌA KHÓA</h3>
 							<ul>
-								<li class="font-iCielPantonBlack text-brown">Mỗi 1đ bạn nạp vào game từ Thẻ Scoin sẽ nhận được 2 điểm</li>
-								<li class="font-iCielPantonBlack text-brown">Mỗi 1đ bạn nạp vào game từ ví Scoin sẽ nhận được 1 điểm.</li>
-								<li class="font-iCielPantonBlack text-brown">Mỗi 100.000 điểm bạn nhận được 01 Chìa khóa được hệ thống tự động quy đổi.</li>
+								<li class="font-iCielPantonBlack text-brown">Mỗi 1 Scoin bạn nạp vào game từ Thẻ Scoin sẽ nhận được 2 Điểm</li>
+								<li class="font-iCielPantonBlack text-brown">Mỗi 1 Scoin bạn nạp vào game từ ví Scoin sẽ nhận được 1 Điểm.</li>
+								<li class="font-iCielPantonBlack text-brown">Mỗi 100.000 Điểm bạn nhận được 01 Chìa khóa được hệ thống tự động quy đổi.</li>
 							</ul>				
 							<p class="font-iCielPantonBlack text-brown">(không giới hạn giá trị nạp & số lần nạp)</p>
 							<div class="alert alert-giaithuong">
 								<p class="font-iCielPantonBlack text-brown">Số điểm đã tích lũy: <span class="text-dark font-iCielPantonBlack">{turnsBuyInfo.accumulationPoint ? turnsBuyInfo.accumulationPoint.toLocaleString() : 0} Điểm</span></p>	
-								<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm tối thiểu <span class="text-red font-iCielPantonBlack" style={{color:'red'}}> {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0}Đ từ thẻ Scoin</span> hoặc <span class="font-iCielPantonBlack" style={{color:'red'}}>{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví </span>  để nhận 01 Chìa khóa miễn phí!</p>
+								<p class="font-iCielPantonBlack text-brown" style={{fontWeight:'bold'}}>Cần nạp thêm tối thiểu <span class="text-red font-iCielPantonBlack" style={{color:'red'}}> {turnsBuyInfo.cardBalanceRounding ? turnsBuyInfo.cardBalanceRounding.toLocaleString(): 0} Scoin từ thẻ Scoin</span> hoặc <span class="font-iCielPantonBlack" style={{color:'red'}}>{turnsBuyInfo.scoinBalanceRounding ? turnsBuyInfo.scoinBalanceRounding.toLocaleString(): 0} Scoin từ ví </span>  để nhận 01 Chìa khóa miễn phí!</p>
 							</div>
 							<p class="text-center w-75 mx-auto mt-4 mb-0"><a href="http://sandbox.scoin.vn/nap-vao-game?GameId=330281" title="Nạp Game" target="_blank"><img src={btn_nap_game} class="img-fluid napGame" /></a></p>
 						</div>
