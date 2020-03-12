@@ -380,11 +380,10 @@ class Lucky_Rotation extends React.Component {
 							});
 							$('#Khobau').modal('hide');
 						}, 1700);
-					}
 						
-					// }else{
-					// 	$('#myModal6').modal('show');
-					// }
+					}else{
+						$('#myModal6').modal('show');
+					}
 				}
 			} else {
 				$('#myModal5').modal('show');
@@ -408,9 +407,10 @@ class Lucky_Rotation extends React.Component {
 							}, 2000);
 							this.setState({timeout: timeout});	
 						}
-					}else{
-						$('#myModal6').modal('show');
 					}
+					// }else{
+					// 	$('#myModal6').modal('show');
+					// }
 					this.setState({turnsFree:turnsFree})
 				}else if(data.status ==="04"){
 					$('#myModal13').modal('show');
